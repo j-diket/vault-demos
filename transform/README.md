@@ -25,3 +25,10 @@ This seup script will do a few things:
     4. Create a transformation type names "card-number" that utilizes the built-in credit card number template.
     
     5. Output the details of created transformation for confirmation.
+
+>4. Paste the following command in the bash terminal, changing the "value" to any number you'd like encoded *that matches the format*.
+>>`vault write transform/encode/payments value=1111-2222-3333-4444`
+
+>5. To decode the value, paste the following code, replacing the "value" with the output of Step 4.
+>>`vault write transform/decode/payments \
+        value=8492-9808-1939-2623`
