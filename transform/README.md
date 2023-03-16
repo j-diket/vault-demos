@@ -1,4 +1,4 @@
-# Transit Encryption Demo
+# Transform Encryption Demo
 
 >1. Download and install Vault
 >

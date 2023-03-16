@@ -50,3 +50,19 @@ You should now see the original string you entered into the encypt command.
 
 ## Rotating the encryption key
 
+We can rotate the encryption key used during Transit encryption using simple CLI or API commands.  Within the API use:
+>`vault write -f transit/keys/example/rotate`
+
+Newly encrypted data will now have the "vault:v2:" prefix, showing the encryption used the new key.
+
+We can enforce the key version needed to decrypt data:
+>`vault write transit/keys/example/config min_decryption_version=2`
+
+We can rewrap old encryption using the new key by leveraging the rewrap command:
+>`vault write transit/rewrap/example ciphertext="vault:v1:cZNHVx+sxdMErXRSuDa1q/pz49fXTn1PScKfhf+PIZPvy8xKfkytpwKcbC0fF2U="`
+
+Examine our key information:
+>`vault read transit/keys/example`
+
+Setup auto-rotation:
+>`vault write transit/keys/example/config auto_rotate_period=5s`
